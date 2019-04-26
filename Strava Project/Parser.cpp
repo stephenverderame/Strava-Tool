@@ -88,6 +88,10 @@ std::vector<token_t*> JSONParser::parse(const std::string & data, size_t start, 
 		int i = 1;
 		while (data[pos - ++i] != '"');
 		std::string label = data.substr(pos - i + 1, i - 2);
+		if (!validLabel(label)) {
+			searchStart = match.suffix().first;
+			continue;
+		}
 		i = 1;
 		std::string value;
 		if (data[pos + 1] == '[') {
@@ -102,6 +106,12 @@ std::vector<token_t*> JSONParser::parse(const std::string & data, size_t start, 
 		searchStart = match.suffix().first;
 	}
 	return tokens;
+}
+bool JSONParser::validLabel(const std::string & label)
+{
+	for (auto c : label)
+		if (c != '_' && !isalpha(c)) return false;
+	return true;
 }
 void JSONParser::parse(const std::string & data) {
 	std::smatch matches;

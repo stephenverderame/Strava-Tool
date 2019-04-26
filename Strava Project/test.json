@@ -4,6 +4,175 @@ Root:
 		athlete: 
 			id: 32291880
 			resource_state: 1
+		name: EasyDayWatopia
+		distance: 21274.7
+		moving_time: 2328
+		elapsed_time: 2328
+		total_elevation_gain: 76.2
+		type: VirtualRide
+		id: 2320360671
+		external_id: stripped_health_data_32291880_1556287415.gpx
+		upload_id: 2469116272
+		start_date: 2019-04-26T13:23:23Z
+		start_date_local: 2019-04-26T08:23:23Z
+		timezone: (GMT-06:00)America/Chicago
+		utc_offset: -18000.0
+		start_latlng: -11.64,166.97
+		end_latlng: -11.64,166.94
+		location_city: null
+		location_state: null
+		location_country: UnitedStates
+		start_latitude: -11.64
+		start_longitude: 166.97
+		achievement_count: 0
+		kudos_count: 0
+		comment_count: 0
+		athlete_count: 22
+		photo_count: 0
+		map: 
+			id: a2320360671
+			resource_state: 2
+		trainer: false
+		commute: false
+		manual: false
+		private: true
+		visibility: only_me
+		flagged: false
+		gear_id: null
+		from_accepted_tag: false
+		average_speed: 9.139
+		max_speed: 15.3
+		average_cadence: 85.6
+		average_watts: 135.7
+		weighted_average_watts: 139
+		kilojoules: 316.0
+		device_watts: true
+		has_heartrate: false
+		heartrate_opt_out: false
+		display_hide_heartrate_option: false
+		max_watts: 287
+		elev_high: 28.0
+		elev_low: -6.4
+		pr_count: 0
+		total_photo_count: 1
+		has_kudoed: false
+	: 
+		resource_state: 2
+		athlete: 
+			id: 32291880
+			resource_state: 1
+		name: RestRidewMom
+		distance: 10754.0
+		moving_time: 3657
+		elapsed_time: 4865
+		total_elevation_gain: 196.6
+		type: Ride
+		workout_type: 10
+		id: 2318225938
+		external_id: stripped_health_data_32291880_1556208495.gpx
+		upload_id: 2466891962
+		start_date: 2019-04-25T14:45:03Z
+		start_date_local: 2019-04-25T10:45:03Z
+		timezone: (GMT-05:00)America/New_York
+		utc_offset: -14400.0
+		start_latlng: 40.83,-73.47
+		end_latlng: 40.82,-73.47
+		location_city: null
+		location_state: null
+		location_country: UnitedStates
+		start_latitude: 40.83
+		start_longitude: -73.47
+		achievement_count: 1
+		kudos_count: 0
+		comment_count: 0
+		athlete_count: 1
+		photo_count: 0
+		map: 
+			id: a2318225938
+			resource_state: 2
+		trainer: false
+		commute: false
+		manual: false
+		private: true
+		visibility: only_me
+		flagged: false
+		gear_id: null
+		from_accepted_tag: false
+		average_speed: 2.941
+		max_speed: 6.7
+		average_temp: 15.0
+		average_watts: 44.7
+		kilojoules: 163.5
+		device_watts: false
+		has_heartrate: false
+		heartrate_opt_out: false
+		display_hide_heartrate_option: false
+		elev_high: 92.8
+		elev_low: 54.0
+		pr_count: 0
+		total_photo_count: 0
+		has_kudoed: false
+	: 
+		resource_state: 2
+		athlete: 
+			id: 32291880
+			resource_state: 1
+		name: MorningRide
+		distance: 50253.9
+		moving_time: 10423
+		elapsed_time: 13183
+		total_elevation_gain: 691.6
+		type: Ride
+		workout_type: 10
+		id: 2316102719
+		external_id: stripped_health_data_32291880_1556131182.gpx
+		upload_id: 2464677933
+		start_date: 2019-04-24T14:59:38Z
+		start_date_local: 2019-04-24T10:59:38Z
+		timezone: (GMT-05:00)America/New_York
+		utc_offset: -14400.0
+		start_latlng: 40.82,-73.43
+		end_latlng: 40.82,-73.43
+		location_city: null
+		location_state: null
+		location_country: UnitedStates
+		start_latitude: 40.82
+		start_longitude: -73.43
+		achievement_count: 21
+		kudos_count: 7
+		comment_count: 0
+		athlete_count: 2
+		photo_count: 0
+		map: 
+			id: a2316102719
+			resource_state: 2
+		trainer: false
+		commute: false
+		manual: false
+		private: false
+		visibility: everyone
+		flagged: false
+		gear_id: null
+		from_accepted_tag: false
+		average_speed: 4.821
+		max_speed: 12.9
+		average_temp: 18.0
+		average_watts: 72.6
+		kilojoules: 757.0
+		device_watts: false
+		has_heartrate: false
+		heartrate_opt_out: false
+		display_hide_heartrate_option: false
+		elev_high: 108.4
+		elev_low: 35.4
+		pr_count: 5
+		total_photo_count: 0
+		has_kudoed: false
+	: 
+		resource_state: 2
+		athlete: 
+			id: 32291880
+			resource_state: 1
 		name: MorningRide
 		distance: 39799.5
 		moving_time: 5607
@@ -15,13 +184,8 @@ Root:
 		external_id: stripped_health_data_32291880_1556031035.gpx
 		upload_id: 2461102669
 		start_date: 2019-04-23T13:12:13Z
-		2019-04-23T1: 12:13Z
-		2019-04-23T13:1: 13Z
 		start_date_local: 2019-04-23T09:12:13Z
-		2019-04-23T0: 12:13Z
-		2019-04-23T09:1: 13Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 40.82,-73.43
 		end_latlng: 40.82,-73.43
@@ -71,18 +235,13 @@ Root:
 		elapsed_time: 7803
 		total_elevation_gain: 586.8
 		type: Ride
-		workout_type: null
+		workout_type: 10
 		id: 2312404899
 		external_id: stripped_health_data_32291880_1556024404.gpx
 		upload_id: 2460766099
 		start_date: 2019-04-23T10:10:32Z
-		2019-04-23T1: 10:32Z
-		2019-04-23T10:1: 32Z
 		start_date_local: 2019-04-23T06:10:32Z
-		2019-04-23T0: 10:32Z
-		2019-04-23T06:1: 32Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 40.82,-73.42
 		end_latlng: 40.82,-73.43
@@ -91,7 +250,7 @@ Root:
 		location_country: UnitedStates
 		start_latitude: 40.82
 		start_longitude: -73.42
-		achievement_count: 28
+		achievement_count: 30
 		kudos_count: 0
 		comment_count: 0
 		athlete_count: 2
@@ -102,8 +261,8 @@ Root:
 		trainer: false
 		commute: false
 		manual: false
-		private: true
-		visibility: only_me
+		private: false
+		visibility: everyone
 		flagged: false
 		gear_id: null
 		from_accepted_tag: false
@@ -118,7 +277,7 @@ Root:
 		display_hide_heartrate_option: false
 		elev_high: 91.8
 		elev_low: 1.2
-		pr_count: 4
+		pr_count: 5
 		total_photo_count: 0
 		has_kudoed: false
 	: 
@@ -136,13 +295,8 @@ Root:
 		external_id: stripped_health_data_32291880_1555962951.gpx
 		upload_id: 2459285352
 		start_date: 2019-04-22T18:49:02Z
-		2019-04-22T1: 49:02Z
-		2019-04-22T18:4: 02Z
 		start_date_local: 2019-04-22T13:49:02Z
-		2019-04-22T1: 49:02Z
-		2019-04-22T13:4: 02Z
 		timezone: (GMT-06:00)America/Chicago
-		(GMT-0: 00)America/Chicago
 		utc_offset: -18000.0
 		start_latlng: 47.27,11.4
 		end_latlng: 47.25,11.44
@@ -199,13 +353,8 @@ Root:
 		external_id: null
 		upload_id: null
 		start_date: 2019-04-21T14:40:40Z
-		2019-04-21T1: 40:40Z
-		2019-04-21T14:4: 40Z
 		start_date_local: 2019-04-21T09:40:40Z
-		2019-04-21T0: 40:40Z
-		2019-04-21T09:4: 40Z
 		timezone: (GMT-06:00)America/Chicago
-		(GMT-0: 00)America/Chicago
 		utc_offset: -18000.0
 		start_latlng: null
 		end_latlng: null
@@ -256,13 +405,8 @@ Root:
 		external_id: garmin_push_3574853143
 		upload_id: 2453802974
 		start_date: 2019-04-20T17:54:29Z
-		2019-04-20T1: 54:29Z
-		2019-04-20T17:5: 29Z
 		start_date_local: 2019-04-20T13:54:29Z
-		2019-04-20T1: 54:29Z
-		2019-04-20T13:5: 29Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 40.89,-73.34
 		end_latlng: 40.89,-73.34
@@ -317,13 +461,8 @@ Root:
 		external_id: garmin_push_3567505099
 		upload_id: 2447243080
 		start_date: 2019-04-18T12:47:23Z
-		2019-04-18T1: 47:23Z
-		2019-04-18T12:4: 23Z
 		start_date_local: 2019-04-18T08:47:23Z
-		2019-04-18T0: 47:23Z
-		2019-04-18T08:4: 23Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 41.27,-73.92
 		end_latlng: 41.27,-73.93
@@ -378,13 +517,8 @@ Root:
 		external_id: stripped_health_data_32291880_1555451901.gpx
 		upload_id: 2442861921
 		start_date: 2019-04-16T20:17:31Z
-		2019-04-16T2: 17:31Z
-		2019-04-16T20:1: 31Z
 		start_date_local: 2019-04-16T16:17:31Z
-		2019-04-16T1: 17:31Z
-		2019-04-16T16:1: 31Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 40.82,-73.43
 		end_latlng: 40.82,-73.43
@@ -439,13 +573,8 @@ Root:
 		external_id: stripped_health_data_32291880_1555262847.gpx
 		upload_id: 2437467912
 		start_date: 2019-04-14T15:36:12Z
-		2019-04-14T1: 36:12Z
-		2019-04-14T15:3: 12Z
 		start_date_local: 2019-04-14T11:36:12Z
-		2019-04-14T1: 36:12Z
-		2019-04-14T11:3: 12Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 40.87,-72.94
 		end_latlng: 40.87,-72.94
@@ -500,13 +629,8 @@ Root:
 		external_id: stripped_health_data_32291880_1554656617.gpx
 		upload_id: 2419461152
 		start_date: 2019-04-07T15:40:27Z
-		2019-04-07T1: 40:27Z
-		2019-04-07T15:4: 27Z
 		start_date_local: 2019-04-07T11:40:27Z
-		2019-04-07T1: 40:27Z
-		2019-04-07T11:4: 27Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 41.52,-73.07
 		end_latlng: 41.53,-73.08
@@ -561,13 +685,8 @@ Root:
 		external_id: garmin_push_3534452044
 		upload_id: 2418966389
 		start_date: 2019-04-06T17:19:45Z
-		2019-04-06T1: 19:45Z
-		2019-04-06T17:1: 45Z
 		start_date_local: 2019-04-06T13:19:45Z
-		2019-04-06T1: 19:45Z
-		2019-04-06T13:1: 45Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 41.27,-73.92
 		end_latlng: 41.27,-73.93
@@ -622,13 +741,8 @@ Root:
 		external_id: garmin_push_3531275654
 		upload_id: 2416191569
 		start_date: 2019-04-06T15:14:51Z
-		2019-04-06T1: 14:51Z
-		2019-04-06T15:1: 51Z
 		start_date_local: 2019-04-06T11:14:51Z
-		2019-04-06T1: 14:51Z
-		2019-04-06T11:1: 51Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 41.27,-73.92
 		end_latlng: 41.27,-73.93
@@ -683,13 +797,8 @@ Root:
 		external_id: stripped_health_data_32291880_1554418579.gpx
 		upload_id: 2411909302
 		start_date: 2019-04-04T21:10:23Z
-		2019-04-04T2: 10:23Z
-		2019-04-04T21:1: 23Z
 		start_date_local: 2019-04-04T17:10:23Z
-		2019-04-04T1: 10:23Z
-		2019-04-04T17:1: 23Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 40.83,-73.48
 		end_latlng: 40.83,-73.48
@@ -744,13 +853,8 @@ Root:
 		external_id: garmin_push_3504895273
 		upload_id: 2393832141
 		start_date: 2019-03-28T21:41:45Z
-		2019-03-28T2: 41:45Z
-		2019-03-28T21:4: 45Z
 		start_date_local: 2019-03-28T17:41:45Z
-		2019-03-28T1: 41:45Z
-		2019-03-28T17:4: 45Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 40.83,-73.48
 		end_latlng: 40.83,-73.48
@@ -805,13 +909,8 @@ Root:
 		external_id: garmin_push_3501962303
 		upload_id: 2391336883
 		start_date: 2019-03-27T22:29:47Z
-		2019-03-27T2: 29:47Z
-		2019-03-27T22:2: 47Z
 		start_date_local: 2019-03-27T18:29:47Z
-		2019-03-27T1: 29:47Z
-		2019-03-27T18:2: 47Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 40.83,-73.48
 		end_latlng: 40.83,-73.48
@@ -866,13 +965,8 @@ Root:
 		external_id: stripped_health_data_32291880_1553442105.gpx
 		upload_id: 2382802356
 		start_date: 2019-03-24T13:23:57Z
-		2019-03-24T1: 23:57Z
-		2019-03-24T13:2: 57Z
 		start_date_local: 2019-03-24T09:23:57Z
-		2019-03-24T0: 23:57Z
-		2019-03-24T09:2: 57Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 40.83,-73.48
 		end_latlng: 40.83,-73.48
@@ -927,13 +1021,8 @@ Root:
 		external_id: stripped_health_data_32291880_1553368832.gpx
 		upload_id: 2380187789
 		start_date: 2019-03-23T17:03:52Z
-		2019-03-23T1: 03:52Z
-		2019-03-23T17:0: 52Z
 		start_date_local: 2019-03-23T13:03:52Z
-		2019-03-23T1: 03:52Z
-		2019-03-23T13:0: 52Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 39.85,-74.79
 		end_latlng: 39.85,-74.79
@@ -988,13 +1077,8 @@ Root:
 		external_id: stripped_health_data_32291880_1550010218.gpx
 		upload_id: 2286485744
 		start_date: 2019-02-12T21:28:08Z
-		2019-02-12T2: 28:08Z
-		2019-02-12T21:2: 08Z
 		start_date_local: 2019-02-12T15:28:08Z
-		2019-02-12T1: 28:08Z
-		2019-02-12T15:2: 08Z
 		timezone: (GMT-06:00)America/Chicago
-		(GMT-0: 00)America/Chicago
 		utc_offset: -21600.0
 		start_latlng: 40.78,-73.96
 		end_latlng: 40.77,-73.97
@@ -1050,13 +1134,8 @@ Root:
 		external_id: stripped_health_data_32291880_1549920553.gpx
 		upload_id: 2284065158
 		start_date: 2019-02-11T20:48:17Z
-		2019-02-11T2: 48:17Z
-		2019-02-11T20:4: 17Z
 		start_date_local: 2019-02-11T14:48:17Z
-		2019-02-11T1: 48:17Z
-		2019-02-11T14:4: 17Z
 		timezone: (GMT-06:00)America/Chicago
-		(GMT-0: 00)America/Chicago
 		utc_offset: -21600.0
 		start_latlng: 51.51,-0.07
 		end_latlng: 51.5,-0.11
@@ -1112,13 +1191,8 @@ Root:
 		external_id: stripped_health_data_32291880_1547583724.gpx
 		upload_id: 2223420044
 		start_date: 2019-01-15T19:51:21Z
-		2019-01-15T1: 51:21Z
-		2019-01-15T19:5: 21Z
 		start_date_local: 2019-01-15T13:51:21Z
-		2019-01-15T1: 51:21Z
-		2019-01-15T13:5: 21Z
 		timezone: (GMT-06:00)America/Chicago
-		(GMT-0: 00)America/Chicago
 		utc_offset: -21600.0
 		start_latlng: 40.78,-73.96
 		end_latlng: 40.79,-73.96
@@ -1174,13 +1248,8 @@ Root:
 		external_id: stripped_health_data_32291880_1546984215.gpx
 		upload_id: 2206481925
 		start_date: 2019-01-08T20:49:26Z
-		2019-01-08T2: 49:26Z
-		2019-01-08T20:4: 26Z
 		start_date_local: 2019-01-08T14:49:26Z
-		2019-01-08T1: 49:26Z
-		2019-01-08T14:4: 26Z
 		timezone: (GMT-06:00)America/Chicago
-		(GMT-0: 00)America/Chicago
 		utc_offset: -21600.0
 		start_latlng: 51.51,-0.08
 		end_latlng: 51.49,-0.15
@@ -1236,13 +1305,8 @@ Root:
 		external_id: stripped_health_data_32291880_1546790824.gpx
 		upload_id: 2201199957
 		start_date: 2019-01-06T15:25:28Z
-		2019-01-06T1: 25:28Z
-		2019-01-06T15:2: 28Z
 		start_date_local: 2019-01-06T09:25:28Z
-		2019-01-06T0: 25:28Z
-		2019-01-06T09:2: 28Z
 		timezone: (GMT-06:00)America/Chicago
-		(GMT-0: 00)America/Chicago
 		utc_offset: -21600.0
 		start_latlng: 40.78,-73.96
 		end_latlng: 40.77,-73.97
@@ -1298,13 +1362,8 @@ Root:
 		external_id: stripped_health_data_32291880_1546718471.gpx
 		upload_id: 2198953157
 		start_date: 2019-01-05T19:10:46Z
-		2019-01-05T1: 10:46Z
-		2019-01-05T19:1: 46Z
 		start_date_local: 2019-01-05T13:10:46Z
-		2019-01-05T1: 10:46Z
-		2019-01-05T13:1: 46Z
 		timezone: (GMT-06:00)America/Chicago
-		(GMT-0: 00)America/Chicago
 		utc_offset: -21600.0
 		start_latlng: 40.78,-73.96
 		end_latlng: 40.77,-73.97
@@ -1360,13 +1419,8 @@ Root:
 		external_id: stripped_health_data_32291880_1546461336.gpx
 		upload_id: 2191836108
 		start_date: 2019-01-02T20:09:12Z
-		2019-01-02T2: 09:12Z
-		2019-01-02T20:0: 12Z
 		start_date_local: 2019-01-02T14:09:12Z
-		2019-01-02T1: 09:12Z
-		2019-01-02T14:0: 12Z
 		timezone: (GMT-06:00)America/Chicago
-		(GMT-0: 00)America/Chicago
 		utc_offset: -21600.0
 		start_latlng: 51.51,-0.08
 		end_latlng: 51.49,-0.1
@@ -1422,13 +1476,8 @@ Root:
 		external_id: stripped_health_data_32291880_1546007886.gpx
 		upload_id: 2180043339
 		start_date: 2018-12-28T13:57:26Z
-		2018-12-28T1: 57:26Z
-		2018-12-28T13:5: 26Z
 		start_date_local: 2018-12-28T07:57:26Z
-		2018-12-28T0: 57:26Z
-		2018-12-28T07:5: 26Z
 		timezone: (GMT-06:00)America/Chicago
-		(GMT-0: 00)America/Chicago
 		utc_offset: -21600.0
 		start_latlng: 40.77,-73.97
 		end_latlng: 40.77,-73.98
@@ -1485,13 +1534,8 @@ Root:
 		external_id: garmin_push_3197988708
 		upload_id: 2132775866
 		start_date: 2018-12-01T20:02:54Z
-		2018-12-01T2: 02:54Z
-		2018-12-01T20:0: 54Z
 		start_date_local: 2018-12-01T15:02:54Z
-		2018-12-01T1: 02:54Z
-		2018-12-01T15:0: 54Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -18000.0
 		start_latlng: 40.83,-73.48
 		end_latlng: 40.83,-73.48
@@ -1546,13 +1590,8 @@ Root:
 		external_id: garmin_push_3089292566
 		upload_id: 2039357005
 		start_date: 2018-10-14T14:01:10Z
-		2018-10-14T1: 01:10Z
-		2018-10-14T14:0: 10Z
 		start_date_local: 2018-10-14T10:01:10Z
-		2018-10-14T1: 01:10Z
-		2018-10-14T10:0: 10Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 40.87,-72.94
 		end_latlng: 40.87,-72.94
@@ -1607,13 +1646,8 @@ Root:
 		external_id: garmin_push_3069234988
 		upload_id: 2021852306
 		start_date: 2018-10-06T13:38:40Z
-		2018-10-06T1: 38:40Z
-		2018-10-06T13:3: 40Z
 		start_date_local: 2018-10-06T09:38:40Z
-		2018-10-06T0: 38:40Z
-		2018-10-06T09:3: 40Z
 		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
 		utc_offset: -14400.0
 		start_latlng: 40.87,-72.94
 		end_latlng: 40.87,-72.94
@@ -1649,189 +1683,6 @@ Root:
 		display_hide_heartrate_option: false
 		elev_high: 36.8
 		elev_low: 6.2
-		pr_count: 0
-		total_photo_count: 0
-		has_kudoed: false
-	: 
-		resource_state: 2
-		athlete: 
-			id: 32291880
-			resource_state: 1
-		name: MorningRide
-		distance: 51782.3
-		moving_time: 10523
-		elapsed_time: 10877
-		total_elevation_gain: 326.0
-		type: Ride
-		workout_type: null
-		id: 1876020472
-		external_id: garmin_push_3054990332
-		upload_id: 2009556903
-		start_date: 2018-09-30T13:49:30Z
-		2018-09-30T1: 49:30Z
-		2018-09-30T13:4: 30Z
-		start_date_local: 2018-09-30T09:49:30Z
-		2018-09-30T0: 49:30Z
-		2018-09-30T09:4: 30Z
-		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
-		utc_offset: -14400.0
-		start_latlng: 40.87,-72.94
-		end_latlng: 40.87,-72.94
-		location_city: null
-		location_state: null
-		location_country: UnitedStates
-		start_latitude: 40.87
-		start_longitude: -72.94
-		achievement_count: 13
-		kudos_count: 7
-		comment_count: 1
-		athlete_count: 1
-		photo_count: 0
-		map: 
-			id: a1876020472
-			resource_state: 2
-		trainer: false
-		commute: false
-		manual: false
-		private: false
-		visibility: everyone
-		flagged: false
-		gear_id: null
-		from_accepted_tag: false
-		average_speed: 4.921
-		max_speed: 9.3
-		average_temp: 14.0
-		average_watts: 50.8
-		kilojoules: 534.7
-		device_watts: false
-		has_heartrate: false
-		heartrate_opt_out: false
-		display_hide_heartrate_option: false
-		elev_high: 63.2
-		elev_low: 31.6
-		pr_count: 3
-		total_photo_count: 0
-		has_kudoed: false
-	: 
-		resource_state: 2
-		athlete: 
-			id: 32291880
-			resource_state: 1
-		name: MorningRide
-		distance: 25819.2
-		moving_time: 6084
-		elapsed_time: 6375
-		total_elevation_gain: 168.0
-		type: Ride
-		workout_type: null
-		id: 1875315854
-		external_id: garmin_push_3054156607
-		upload_id: 2008798692
-		start_date: 2018-09-22T13:09:35Z
-		2018-09-22T1: 09:35Z
-		2018-09-22T13:0: 35Z
-		start_date_local: 2018-09-22T09:09:35Z
-		2018-09-22T0: 09:35Z
-		2018-09-22T09:0: 35Z
-		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
-		utc_offset: -14400.0
-		start_latlng: 40.87,-72.94
-		end_latlng: 40.87,-72.94
-		location_city: null
-		location_state: null
-		location_country: UnitedStates
-		start_latitude: 40.87
-		start_longitude: -72.94
-		achievement_count: 19
-		kudos_count: 5
-		comment_count: 0
-		athlete_count: 1
-		photo_count: 0
-		map: 
-			id: a1875315854
-			resource_state: 2
-		trainer: false
-		commute: false
-		manual: false
-		private: false
-		visibility: everyone
-		flagged: false
-		gear_id: null
-		from_accepted_tag: false
-		average_speed: 4.244
-		max_speed: 9.3
-		average_temp: 18.0
-		average_watts: 43.0
-		kilojoules: 261.8
-		device_watts: false
-		has_heartrate: false
-		heartrate_opt_out: false
-		display_hide_heartrate_option: false
-		elev_high: 46.2
-		elev_low: 9.0
-		pr_count: 5
-		total_photo_count: 0
-		has_kudoed: false
-	: 
-		resource_state: 2
-		athlete: 
-			id: 32291880
-			resource_state: 1
-		name: EveningRide
-		distance: 8184.5
-		moving_time: 1971
-		elapsed_time: 1971
-		total_elevation_gain: 102.0
-		type: Ride
-		workout_type: null
-		id: 1853218232
-		external_id: garmin_push_3028266849
-		upload_id: 1985914607
-		start_date: 2018-09-19T22:43:07Z
-		2018-09-19T2: 43:07Z
-		2018-09-19T22:4: 07Z
-		start_date_local: 2018-09-19T18:43:07Z
-		2018-09-19T1: 43:07Z
-		2018-09-19T18:4: 07Z
-		timezone: (GMT-05:00)America/New_York
-		(GMT-0: 00)America/New_York
-		utc_offset: -14400.0
-		start_latlng: 40.83,-73.48
-		end_latlng: 40.83,-73.48
-		location_city: null
-		location_state: null
-		location_country: UnitedStates
-		start_latitude: 40.83
-		start_longitude: -73.48
-		achievement_count: 1
-		kudos_count: 4
-		comment_count: 0
-		athlete_count: 1
-		photo_count: 0
-		map: 
-			id: a1853218232
-			resource_state: 2
-		trainer: false
-		commute: false
-		manual: false
-		private: false
-		visibility: everyone
-		flagged: false
-		gear_id: null
-		from_accepted_tag: false
-		average_speed: 4.152
-		max_speed: 7.9
-		average_temp: 17.0
-		average_watts: 59.3
-		kilojoules: 116.9
-		device_watts: false
-		has_heartrate: false
-		heartrate_opt_out: false
-		display_hide_heartrate_option: false
-		elev_high: 67.2
-		elev_low: 41.0
 		pr_count: 0
 		total_photo_count: 0
 		has_kudoed: false

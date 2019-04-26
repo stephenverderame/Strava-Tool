@@ -51,9 +51,9 @@ Strava::Strava()
 	HttpFrame responseFrame;
 	error = authStage2.getMessage(responseFrame);
 	bool ok = responseFrame.data.find("200") != std::string::npos;
-	while (ok && responseFrame.data.find("access_token") == std::string::npos) {
+/*	while (ok && responseFrame.data.find("access_token") == std::string::npos) {
 		authStage2.getMessage(responseFrame);
-	}
+	}*/
 	if (ok) {
 //		printf("%s\n", responseFrame.data.c_str());
 		size_t tokenLocal = responseFrame.data.find("\"access_token\":");
@@ -65,6 +65,32 @@ Strava::Strava()
 
 Strava::~Strava()
 {
+}
+
+std::string Strava::getActivitiesList(int page, int perPage)
+{
+	std::stringstream buffer;
+	HttpsClient client((char*)"www.strava.com");
+	HttpFrame request;
+	request.protocol = "GET";
+	request.file = "/api/v3/athlete/activities?page=" + std::to_string(page) + "&per_page=" + std::to_string(perPage);
+	request.headers["Host"] = "www.strava.com";
+	request.headers["Accept"] = "application/json, */*";
+	request.headers["Connection"] = "keep-alive";
+	request.headers["Authorization"] = "Bearer " + accessToken;
+	client.connectClient();
+	request.composeRequest();
+	client.sendMessage(request);
+	HttpFrame response;
+	client.getMessage(response);
+	bool ok = response.data.find("OK") != std::string::npos;
+	buffer << response.data;
+/*	while (ok && buffer.str().find("\r\n0\r\n") == std::string::npos) { //until it finds end of chunk
+		client.getMessage(response);
+		buffer << response.data;
+	}*/
+	return buffer.str();
+
 }
 
 std::unique_ptr<char[]> Strava::urlencode(const char * c) {

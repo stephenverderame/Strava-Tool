@@ -60,7 +60,14 @@ class JSONParser : public Parser {
 private:
 	token_t * parse(const std::string & data, scope_t * scope);
 	std::vector<token_t*> parse(const std::string & data, size_t start, size_t end);
+	bool validLabel(const std::string & label);
 public:
+	/**
+	* Preconditions: all labels contain letters or _ only
+	* 			     data contains json only, enclosed in [] or a root node {}
+	*				 no rogue brackets (brackets in values)
+	*				 no newlines or spaces (spaces in labels or values are ok)
+	*/
 	void parse(const std::string & data);
 	void addParameter(std::string & name, std::string & value);
 	void addParameter(token_t * token);

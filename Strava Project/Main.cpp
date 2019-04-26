@@ -59,17 +59,17 @@ int main() {
 	client.getMessage_b(frame);
 	printf("%s\n", frame.data.c_str());
 	client.sendHtmlFile(testFile);*/
-//	Strava strava;
-	std::ifstream f("testJson.json");
-	std::string str((std::istream_iterator<char>(f)), std::istream_iterator<char>());
-	printf("File loaded!\n");
-	str = Util::removeAll(str, { '\n', '\r', ' '});
-	printf("Max len: %d\n", str.size());
-	printf("Removed newlines!\n");
-	str = std::regex_replace(str, std::regex("\"summary_polyline\":\"[^\",:]+\","), "");
+	Strava strava;
+	std::string activities = strava.getActivitiesList();
+	printf("%s\n", activities.c_str());
+	std::ofstream o("test.txt");
+	o << activities;
+	o.close();
+	activities = activities.substr(activities.find("[{"));
+	activities = Util::removeAll(activities, { '\n', '\r', ' '});
+	activities = std::regex_replace(activities, std::regex("\"summary_polyline\":\"[^\",:]+\","), "");
 	JSONParser parser;
-	printf("Created parser\n");
-	parser.parse(str);
+	parser.parse(activities);
 //	parser.operator<<(std::cout);
 	std::ofstream out;
 	out.open("test.json");
@@ -77,7 +77,7 @@ int main() {
 	out.close();
 	const token_t * n = parser.rootNode();
 	for (auto c : n->children)
-		printf("%s %s\n", c->search("name")->value.c_str(), c->search("start_date_local")->value.c_str());
+		printf("%s (%s) occured at %s\n", c->search("name")->value.c_str(), c->search("id")->value.c_str(), c->search("start_date_local")->value.c_str());
 	getchar();
 	return 0;
 }
