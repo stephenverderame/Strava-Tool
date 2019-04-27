@@ -128,10 +128,12 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="Polyline.cpp" />
     <ClCompile Include="Strava.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Parser.h" />
+    <ClInclude Include="Polyline.h" />
     <ClInclude Include="Strava.h" />
   </ItemGroup>
   <ItemGroup>

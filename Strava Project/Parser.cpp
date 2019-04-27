@@ -64,45 +64,36 @@ token_t * JSONParser::parse(const std::string & data, scope_t * scope)
 std::vector<token_t*> JSONParser::parse(const std::string & data, size_t start, size_t end)
 {
 	std::vector<token_t*> tokens;
-/*	std::string s = data.substr(start, end - start);
-	std::istringstream iss(s);
-	std::string line;
-	while (std::getline(iss, line, ',')) {
-		size_t pivot = line.find(':');
-		if (pivot == std::string::npos) continue;
-		std::string label = Util::removeAll(line.substr(0, pivot), '"');
-		std::string value = Util::removeAll(line.substr(pivot + 1), '"');
-		token_t * n = new token_t(label, value);
-		tokens.push_back(n);
-	}*/
 	std::regex re(":");
 	auto searchStart = data.cbegin() + start;
 	auto searchEnd = data.cbegin() + end;
 	std::smatch match;
 	while (std::regex_search(searchStart, searchEnd, match, re)) {
 		size_t pos = match.position() + (searchStart - data.cbegin());
-		if (data[pos + 1] == '{') {
-			searchStart = match.suffix().first;
-			continue; //already got in scope pass
+		if (isJSONChar(pos)) {
+			if (data[pos + 1] == '{') {
+				searchStart = match.suffix().first;
+				continue; //already got in scope pass
+			}
+			int i = 1;
+			while (data[pos - ++i] != '"');
+			std::string label = data.substr(pos - i + 1, i - 2);
+/*			if (!validLabel(label)) {
+				searchStart = match.suffix().first;
+				continue;
+			}*/
+			i = 1;
+			std::string value;
+			if (data[pos + 1] == '[') {
+				while (data[pos + ++i] != ']' && pos + i <= end);
+				value = data.substr(pos + 2, i - 2);
+			}
+			else {
+				while (data[pos + ++i] != ',' && pos + i <= end);
+				value = Util::removeAll(data.substr(pos + 1, i - 1), '"');
+			}
+			tokens.push_back(new token_t(label, value));
 		}
-		int i = 1;
-		while (data[pos - ++i] != '"');
-		std::string label = data.substr(pos - i + 1, i - 2);
-		if (!validLabel(label)) {
-			searchStart = match.suffix().first;
-			continue;
-		}
-		i = 1;
-		std::string value;
-		if (data[pos + 1] == '[') {
-			while (data[pos + ++i] != ']' && pos + i <= end);
-			value = data.substr(pos + 2, i - 2);
-		}
-		else {
-			while (data[pos + ++i] != ',' && pos + i <= end);
-			value = Util::removeAll(data.substr(pos + 1, i - 1), '"');
-		}
-		tokens.push_back(new token_t(label, value));
 		searchStart = match.suffix().first;
 	}
 	return tokens;
@@ -113,7 +104,33 @@ bool JSONParser::validLabel(const std::string & label)
 		if (c != '_' && !isalpha(c)) return false;
 	return true;
 }
+bool JSONParser::isJSONChar(size_t index)
+{
+	size_t lo = 0, hi = quotes.size() - 1;
+	if (index < quotes[lo].first || index > quotes[hi].second) return true;
+	while (lo <= hi) {
+		size_t mid = (hi + lo) / 2;//lo + (hi - lo) * ((index - quotes[lo].first) / (quotes[hi].second - quotes[lo].first));
+		if (index >= quotes[mid].first && index <= quotes[mid].second) return false;
+		if (quotes[mid].first > index)
+			hi = mid - 1;
+		else
+			lo = mid + 1;
+	}
+	return true;
+
+}
+void JSONParser::loadStrings(const std::string & data)
+{
+	for (size_t i = 0; i < data.size(); ++i) {
+		if (data[i] == '"') {
+			size_t start = i;
+			while (data[++i] != '"');
+			quotes.emplace_back(start, i);
+		}
+	}
+}
 void JSONParser::parse(const std::string & data) {
+	loadStrings(data);
 	std::smatch matches;
 	scope_t * rootScope = nullptr;
 	scope_t * parent = nullptr;
@@ -126,7 +143,8 @@ void JSONParser::parse(const std::string & data) {
 	}
 	while (std::regex_search(searchStart, data.cend(), matches, re)) {
 		size_t position = matches.position() + (searchStart - data.cbegin());
-		if (matches.str() == "{") {
+		bool isc = isJSONChar(position);
+		if (matches.str() == "{" && isc) {
 			if (rootScope == nullptr) {
 				rootScope = new scope_t{ nullptr, position + 1 };
 				rootScope->name = "Root";
@@ -146,12 +164,12 @@ void JSONParser::parse(const std::string & data) {
 //				printf("\n");
 			}
 		}
-		else if(matches.str() == "}"){
+		else if(isc){
 //			printf("Endscope %s\n", parent->name.c_str());
 			parent->end = position - 1;
 			parent = parent->parent;
 		}
-		if (data[position] != '{' && data[position] != '}') printf("mismatch\n");
+//		if (data[position] != '{' && data[position] != '}') printf("mismatch\n");
 		searchStart = matches.suffix().first;
 	}
 //	printf("Scopes init\n");

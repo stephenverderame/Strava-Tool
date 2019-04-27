@@ -1,8 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Strava.h"
 #include <Windows.h>
-#include <gzip/compress.hpp>
-#include <gzip/decompress.hpp>
+#include "Parser.h"
+#include <fstream>
 
 const int Strava::client_id = 34668;
 const char * const Strava::client_secret = "0a01bd0adee247b04f2605a7d78ffc5f11a9ed93";
@@ -91,6 +91,33 @@ std::string Strava::getActivitiesList(int page, int perPage)
 	}*/
 	return buffer.str();
 
+}
+
+std::string Strava::getActivityPolyline(const std::string & id)
+{
+	HttpsClient client((char*)"www.strava.com");
+	HttpFrame request;
+	request.protocol = "GET";
+	request.file = "/api/v3/activities/" + id + "?include_all_efforts=false";
+	request.headers["Host"] = "www.strava.com";
+	request.headers["Accept"] = "application/json, */*";
+	request.headers["Connection"] = "keep-alive";
+	request.headers["Authorization"] = "Bearer " + accessToken;
+	client.connectClient();
+	request.composeRequest();
+	client.sendMessage(request);
+	HttpFrame response;
+	client.getMessage(response);
+	if (response.data.find("200 OK") != std::string::npos) {
+		JSONParser parser;
+		std::ofstream test("test.txt");
+		test << response.data;
+		test.close();
+		std::string data = response.data.substr(response.data.find("{"));
+		parser.parse(data);
+		return parser.search("polyline", "map");
+	}
+	return "";
 }
 
 std::unique_ptr<char[]> Strava::urlencode(const char * c) {

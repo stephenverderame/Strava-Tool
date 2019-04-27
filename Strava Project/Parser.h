@@ -58,14 +58,30 @@ public:
 struct scope_t;
 class JSONParser : public Parser {
 private:
+	std::vector<std::pair<size_t, size_t>> quotes;
+private:
 	token_t * parse(const std::string & data, scope_t * scope);
 	std::vector<token_t*> parse(const std::string & data, size_t start, size_t end);
+	/**
+	* Determines if a label contains non alphabetical characters
+	* @return true, if label contains only alphabetical characters and/or underscores
+	* Intended usage supersceded by @see isJSONChar()
+	*/
 	bool validLabel(const std::string & label);
+	/**
+	* Determines if the character at the given index is within a string
+	* @return, true if the character is not enclosed in a string
+	*/
+	bool isJSONChar(size_t index);
+	/**
+	* Finds the range of all JSON data strings
+	* Output stored in quotes variable
+	*/
+	void loadStrings(const std::string & data);
 public:
 	/**
 	* Preconditions: all labels contain letters or _ only
 	* 			     data contains json only, enclosed in [] or a root node {}
-	*				 no rogue brackets (brackets in values)
 	*				 no newlines or spaces (spaces in labels or values are ok)
 	*/
 	void parse(const std::string & data);
