@@ -16,6 +16,8 @@ struct token_t {
 	token_t(std::string & name, std::string & value) : name(name), value(value){}
 	token_t(std::string & name) : name(name) {};
 	token_t(const char * name, const char * value) : name(name), value(value){}
+	token_t(const token_t * other);
+	token_t& operator=(const token_t * other);
 	~token_t() {
 		for (auto c : children)
 			delete c;
@@ -45,6 +47,11 @@ protected:
 public:
 	Parser(const std::string & data) : root(nullptr), data(data) {};
 	Parser() : root(nullptr) {};
+	Parser(const Parser & other);
+	Parser(Parser && other);
+	Parser(const token_t * otherRoot);
+	Parser& operator=(const Parser & other);
+	Parser& operator=(Parser && other);
 	~Parser();
 	virtual void parse(const std::string & data) = 0;
 	virtual void addParameter(std::string & name, std::string & value) = 0;
@@ -53,6 +60,10 @@ public:
 	virtual std::ostream& operator<<(std::ostream& o) = 0;
 	std::string search(const std::string & s, const char * parent = nullptr);
 	void set(const std::string & var, const std::string & val, const char * parent = nullptr);
+	/**
+	* Returns root node of parse tree
+	* Memory is still managed by parser class. Pointer can't exceed life of Parser class
+	*/
 	const token_t * rootNode() const { return root; }
 };
 struct scope_t;

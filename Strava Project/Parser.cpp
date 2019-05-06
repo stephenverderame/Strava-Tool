@@ -4,6 +4,29 @@
 #include <regex>
 
 int token_t::tokenTabs = 0;
+Parser::Parser(const Parser & other) : Parser(other.root)
+{
+}
+Parser::Parser(Parser && other)
+{
+	root = other.root;
+	other.root = nullptr;
+}
+Parser::Parser(const token_t * otherRoot)
+{
+	(*root) = otherRoot;
+}
+Parser & Parser::operator=(const Parser & other)
+{
+	(*root) = other.root;
+	return *this;
+}
+Parser & Parser::operator=(Parser && other)
+{
+	root = other.root;
+	other.root = nullptr;
+	return *this;
+}
 Parser::~Parser()
 {
 	if (root != nullptr)
@@ -222,6 +245,19 @@ std::string Util::removeAll(const std::string & s, std::vector<char> chars)
 	for (char let : s)
 		if (std::find(chars.begin(), chars.end(), let) == chars.end()) ss << let;
 	return ss.str();
+}
+
+token_t::token_t(const token_t * other) : name(other->name), value(other->value), children(other->children)
+{
+
+}
+
+token_t& token_t::operator=(const token_t * other)
+{
+	name = other->name;
+	value = other->value;
+	children = other->children;
+	return *this;
 }
 
 const token_t * token_t::search(const char * label) const

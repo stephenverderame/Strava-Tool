@@ -74,8 +74,8 @@
     <LibraryPath>C:\Users\stephen\Documents\Visual Studio 2015\Projects\Emails\lib;C:\Users\stephen\Documents\Visual Studio 2015\Projects\WebLib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\stephen\Downloads\zlib_1_2_8_msvc2015_64\msvc2015_64\include\zlib;C:\Users\stephen\Desktop\coding stuff\gzip-hpp-master\include;C:\Users\stephen\Documents\Visual Studio 2015\Projects\WebLib\WebLib;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\stephen\Downloads\zlib-1.2.11.tar\zlib-1.2.11\build\Debug;C:\Users\stephen\Documents\Visual Studio 2015\Projects\Emails\lib;C:\Users\stephen\Documents\Visual Studio 2015\Projects\WebLib\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\stephen\Desktop\coding stuff\glm-0.9.8.4\glm;C:\Users\stephen\Documents\Visual Studio 2015\Projects\Puzzle Solver + GDI API\GDI API;C:\Users\stephen\Documents\Visual Studio 2015\Projects\WebLib\WebLib;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\stephen\Documents\Visual Studio 2015\Projects\Puzzle Solver + GDI API\Debug;C:\Users\stephen\Documents\Visual Studio 2015\Projects\Emails\lib;C:\Users\stephen\Documents\Visual Studio 2015\Projects\WebLib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -85,7 +85,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>WebLib.lib;libcryptoMD.lib;libsslMD.lib;libcryptoMDd.lib;libsslMDd.lib;libcryptoMT.lib;libsslMT.lib;libcryptoMTd.lib;libsslMTd.lib;zlibstaticd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>WebLib.lib;libcryptoMD.lib;libsslMD.lib;libcryptoMDd.lib;libsslMDd.lib;libcryptoMT.lib;libsslMT.lib;libcryptoMTd.lib;libsslMTd.lib;GUI API.lib;Opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
