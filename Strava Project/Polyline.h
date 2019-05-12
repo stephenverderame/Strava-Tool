@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <Https.h>
+#include <glm.hpp>
 struct coordinate {
 	double lat, lon;
 	coordinate(double lat, double lon) : lat(lat), lon(lon) {};
@@ -17,12 +18,6 @@ private:
 };
 
 namespace height {
-	struct h_coord {
-		float x, y, z;
-		h_coord(float lon, float lat, float height) : x(lon), y(lat), z(height) {};
-		h_coord(float lat, float lon) : y(lat), x(lon), z(0) {};
-		h_coord() : x(0), y(0), z(0) {};
-	};
-	void getHeights(h_coord * points, size_t num);
+	void getHeights(glm::vec3 * points, size_t num);
 }
 

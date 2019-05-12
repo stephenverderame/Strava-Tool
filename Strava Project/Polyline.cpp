@@ -71,7 +71,7 @@ std::vector<char> Polyline::encodeHelper(const int num)
 	return buffer;
 }
 
-void height::getHeights(h_coord * points, size_t num)
+void height::getHeights(glm::vec3 * points, size_t num)
 {
 	
 	HttpsClient client("elevation-api.io");
@@ -110,7 +110,7 @@ void height::getHeights(h_coord * points, size_t num)
 			size_t pos = match.position() + 12;
 			std::string num = response.data.substr(pos + (searchStart - response.data.cbegin()), response.data.find(',', pos + (searchStart - response.data.cbegin())) - (pos + (searchStart - response.data.cbegin())));
 			float h = std::stof(num);
-			points[i * 10 + j].z = h;
+			points[i * 10 + j].y = h;
 			searchStart = match.suffix().first;
 			++j;
 		}

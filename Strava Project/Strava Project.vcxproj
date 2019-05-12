@@ -74,8 +74,8 @@
     <LibraryPath>C:\Users\stephen\Documents\Visual Studio 2015\Projects\Emails\lib;C:\Users\stephen\Documents\Visual Studio 2015\Projects\WebLib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\stephen\Desktop\coding stuff\glm-0.9.8.4\glm;C:\Users\stephen\Documents\Visual Studio 2015\Projects\Puzzle Solver + GDI API\GDI API;C:\Users\stephen\Documents\Visual Studio 2015\Projects\WebLib\WebLib;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\stephen\Documents\Visual Studio 2015\Projects\Puzzle Solver + GDI API\Debug;C:\Users\stephen\Documents\Visual Studio 2015\Projects\Emails\lib;C:\Users\stephen\Documents\Visual Studio 2015\Projects\WebLib\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\stephen\source\repos\S Game Engine;C:\Users\stephen\Desktop\coding stuff\glm-0.9.8.4\glm;C:\Users\stephen\source\repos\S Game Engine\S Game Engine;C:\Users\stephen\Desktop\coding stuff\Glad\include;C:\Users\stephen\Desktop\coding stuff\glfw-3.2.1.bin.WIN32\include\GLFW;C:\Users\stephen\Documents\Visual Studio 2015\Projects\WebLib\WebLib;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\stephen\source\repos\S Game Engine\Debug;C:\Users\stephen\Documents\Visual Studio 2015\Projects\Emails\lib;C:\Users\stephen\Documents\Visual Studio 2015\Projects\WebLib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -85,7 +85,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>WebLib.lib;libcryptoMD.lib;libsslMD.lib;libcryptoMDd.lib;libsslMDd.lib;libcryptoMT.lib;libsslMT.lib;libcryptoMTd.lib;libsslMTd.lib;GUI API.lib;Opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>WebLib.lib;libcryptoMD.lib;libsslMD.lib;libcryptoMDd.lib;libsslMDd.lib;libcryptoMT.lib;libsslMT.lib;libcryptoMTd.lib;libsslMTd.lib;Opengl32.lib;S Game Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -130,11 +130,13 @@
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Polyline.cpp" />
     <ClCompile Include="Strava.cpp" />
+    <ClCompile Include="Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Polyline.h" />
     <ClInclude Include="Strava.h" />
+    <ClInclude Include="Terrain.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Login.html" />
