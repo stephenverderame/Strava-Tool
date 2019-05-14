@@ -14,6 +14,7 @@ public:
 	~Strava();
 	std::string getActivitiesList(int page = 1, int perPage = 30);
 	std::string getActivityPolyline(const std::string & id);
+	bool isInit();
 public:
 	static std::unique_ptr<char[]> urlencode(const char * c);
 	static std::unique_ptr<char[]> urldecode(const char * c);

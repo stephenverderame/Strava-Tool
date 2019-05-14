@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include "Parser.h"
 #include <fstream>
+#include <regex>
 
 const int Strava::client_id = 34668;
 const char * const Strava::client_secret = "0a01bd0adee247b04f2605a7d78ffc5f11a9ed93";
@@ -17,15 +18,24 @@ Strava::Strava()
 	if (error != 0) printf("Accept error: %d\n", error);
 	HttpFrame request;
 	authClient.getMessage_b(request);
-	HtmlFile response("Login.html");
-	authClient.sendHtmlFile(response);
+
 //	printf("%s\n\n", request.data.c_str());
 	size_t codeLocation = request.data.find("code=");
-	if (codeLocation == std::string::npos) printf("Could not find code!\n");
+	bool fail;
+	if (fail = codeLocation == std::string::npos) printf("Could not find code!\n");
 	else authCode = request.data.substr(codeLocation + 5, request.data.find('&', codeLocation) - (codeLocation + 5)).c_str();
-//	printf("Auth Code:%s\n", authCode.c_str());
+	
+	HtmlFile response;
+	std::ifstream in("Login.html");
+	std::stringstream ss;
+	std::string line;
+	while (std::getline(in, line)) ss << line;
+	std::string file = std::regex_replace(ss.str(), std::regex("\\<\\?php.*\\?\\>"), fail ? "Failure" : "Success");
+	response.cpyFromMem(file.c_str());
+	authClient.sendHtmlFile(response);
+	if (fail) return;
 
-	HttpsClient authStage2((char*)"www.strava.com");
+	HttpsClient authStage2("www.strava.com");
 	HttpFrame tokenRequest;
 	tokenRequest.protocol = "POST";
 	tokenRequest.file = "/oauth/token";
@@ -70,7 +80,7 @@ Strava::~Strava()
 std::string Strava::getActivitiesList(int page, int perPage)
 {
 	std::stringstream buffer;
-	HttpsClient client((char*)"www.strava.com");
+	HttpsClient client("www.strava.com");
 	HttpFrame request;
 	request.protocol = "GET";
 	request.file = "/api/v3/athlete/activities?page=" + std::to_string(page) + "&per_page=" + std::to_string(perPage);
@@ -95,7 +105,7 @@ std::string Strava::getActivitiesList(int page, int perPage)
 
 std::string Strava::getActivityPolyline(const std::string & id)
 {
-	HttpsClient client((char*)"www.strava.com");
+	HttpsClient client("www.strava.com");
 	HttpFrame request;
 	request.protocol = "GET";
 	request.file = "/api/v3/activities/" + id + "?include_all_efforts=false";
@@ -115,9 +125,14 @@ std::string Strava::getActivityPolyline(const std::string & id)
 		test.close();
 		std::string data = response.data.substr(response.data.find("{"));
 		parser.parse(data);
-		return parser.search("polyline", "map");
+		return std::regex_replace(parser.search("polyline", "map"), std::regex("\\\\\\\\"), "\\"); // matches with "\\" replaces with "\"
 	}
 	return "";
+}
+
+bool Strava::isInit()
+{
+	return authCode.length() > 0 && accessToken.length() > 0;
 }
 
 std::unique_ptr<char[]> Strava::urlencode(const char * c) {

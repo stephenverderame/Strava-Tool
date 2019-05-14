@@ -90,7 +90,7 @@ void height::getHeights(glm::vec3 * points, size_t num)
 		bool send = false;
 		for (int j = 0; j < 10; ++j) {
 			if (i * 10 + j >= num) break;
-			ss << "(" << points[i * 10 + j].y << "," << points[i * 10 + j].x << ")";
+			ss << "(" << points[i * 10 + j].z << "," << points[i * 10 + j].x << ")";
 			send = true;
 			if (i * 10 + j + 1 < num) ss << ",";
 			else break;
