@@ -135,11 +135,17 @@
   <ItemGroup>
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Polyline.h" />
+    <ClInclude Include="res.h" />
     <ClInclude Include="Strava.h" />
     <ClInclude Include="Terrain.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="FboFrag.glsl" />
+    <None Include="FboVert.glsl" />
     <None Include="Login.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

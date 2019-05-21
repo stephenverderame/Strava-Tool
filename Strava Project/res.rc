@@ -1,0 +1,4 @@
+#include "res.h"
+
+FBO_FRAGMENT CUSTOM_SHADER "FboFrag.glsl"
+FBO_VERTEX CUSTOM_SHADER "FboVert.glsl"
