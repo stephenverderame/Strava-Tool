@@ -1,4 +1,6 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Terrain.h"
+#include <Shape.h>
 
 float map(float minx, float maxx, float x, float miny, float maxy)
 {
@@ -136,6 +138,21 @@ Trail::Trail(glm::vec3 * points, size_t numPoints) : totalVertices(numPoints)
 	glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3) * numPoints, points, GL_STATIC_DRAW);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), 0);
 	glEnableVertexAttribArray(0);
+
+	float rectData[12] = {
+		1.f, 0.f, 1.f,   // top left 
+		1.f, 0.f, 0.f,   // bottom left	
+		0.f, 0.f, 1.f,    // top right
+		0.f, 0.f, 0.f, //btm right
+	};
+	glGenVertexArrays(1, &rVao);
+	glBindVertexArray(rVao);
+	glGenBuffers(1, &rVbo);
+	glBindBuffer(GL_ARRAY_BUFFER, rVbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(rectData), rectData, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), 0);
+	glEnableVertexAttribArray(0);
+
 }
 
 Trail::~Trail()
@@ -144,6 +161,9 @@ Trail::~Trail()
 	glDeleteBuffers(1, &vbo);
 	glDeleteFramebuffers(1, &fbo);
 	glDeleteVertexArrays(1, &vao);
+
+	glDeleteBuffers(1, &rVbo);
+	glDeleteVertexArrays(1, &rVao);
 }
 
 void Trail::draw(const Shader * s) const
@@ -155,13 +175,41 @@ void Trail::draw(const Shader * s) const
 	glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 	glClearColor(bg.r, bg.g, bg.b, bg.a);
 	glClear(GL_COLOR_BUFFER_BIT);
+	s->setInt("tex", 0);
+	bgTex->bind();
+	glBindVertexArray(rVao);
+	s->setBool("useModel", true);
+	s->setMat4("model", model);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+	s->setBool("useModel", false);
 	glBindVertexArray(vao);
+	s->setBool("useColor", true);
 	glDrawArrays(GL_LINE_STRIP, 0, totalVertices);
+	s->setBool("useColor", false);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 void Trail::setColor(glm::vec3 color)
 {
 	this->color = std::move(color);
+}
+
+void Trail::setBgImage(const std::string & data)
+{
+/*	FILE * f = fopen("testImg.jpg", "wb");
+	fwrite(data.c_str(), 1, data.size(), f);
+	fclose(f);*/
+	texOptions o;
+	o.wrap_s = GL_CLAMP_TO_EDGE;
+	o.wrap_t = GL_CLAMP_TO_EDGE;
+	o.mag = GL_LINEAR;
+	o.min = GL_LINEAR;
+	bgTex = std::make_unique<Texture>((const unsigned char*)data.c_str(), data.size());
+//	printf("Texture: %d %d", bgTex->getWidth(), bgTex->getHeight());
+	bgTex->setId(0);
+	bgTex->bind();
+
+	model = glm::scale(model, glm::vec3(textureWidth, textureHeight, 1.0));
+//	model = glm::rotate(model, glm::radians(180.f), glm::vec3(0, 1.0, 0.0));
 }
 

@@ -27,8 +27,9 @@ int main() {
 	const token_t * chosen = nullptr;
 	for (auto c : n->children) {
 		printf("%s (%s) occured at %s\n", c->search("name")->value.c_str(), c->search("id")->value.c_str(), c->search("start_date_local")->value.c_str());
-		if (c->search("name")->value.find("Rapha") != std::string::npos) chosen = c;
+		if (c->search("name")->value.find("Run") != std::string::npos) chosen = c;
 	}
+	chosen = n->children[4];
 	std::string polyline = strava.getActivityPolyline(chosen->search("id")->value);
 	//	std::ofstream out("testPolyline.txt");
 	//	out << polyline << "\r\n\r\n";
@@ -93,9 +94,11 @@ int main() {
 		route[i].z = map(btm * scale, top * scale, route[i].z, 0, Trail::textureHeight);
 		route[i].y = 0;
 	}
+	auto imgData = img::getImage({ top, left }, { btm, right });
 	Trail trail(route.data(), route.size());
 	trail.setColor({ 0.0, 1.0, 0.0 });
 	trail.setBgColor({ 1.0, 0.0, 0.0, 1.0 });
+	trail.setBgImage(imgData);
 	trailShader->use();
 	trailShader->setMat4("projection", glm::ortho(0.f, (float)Trail::textureWidth, 0.f, (float)Trail::textureHeight, -1.f, 1.f));
 //	glEnable(GL_LINE_WIDTH);

@@ -21,3 +21,7 @@ namespace height {
 	void getHeights(glm::vec3 * points, size_t num);
 }
 
+namespace img {
+	std::string getImage(coordinate topLeft, coordinate btmRight);
+}
+

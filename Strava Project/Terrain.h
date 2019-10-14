@@ -2,6 +2,7 @@
 #include <Object.h>
 #include <glm.hpp>
 #include <memory>
+#include <string>
 #define glNull (~0)
 struct face {
 	glm::uvec3 tri1, tri2;
@@ -29,9 +30,14 @@ class Trail : public Object
 protected:
 	unsigned int vao, vbo, fbo;
 	unsigned int tex;
+	
+	unsigned int rVao, rVbo;
+	std::unique_ptr<class Texture> bgTex;
 	size_t totalVertices;
 	glm::vec3 color = { -1, -1, -1 };
 	glm::vec4 bg;
+
+	glm::mat4 model;
 public:
 	static const int textureWidth = 1920, textureHeight = 1080;
 public:
@@ -41,6 +47,7 @@ public:
 	void setColor(glm::vec3 color);
 	const unsigned int getTexture() const { return tex; }
 	void setBgColor(glm::vec4 color) { bg = color; }
+	void setBgImage(const std::string & data);
 };
 float map(float minx, float maxx, float x, float miny, float maxy);
 float sample(glm::vec3 * plane, size_t planeSize, float x, float z);

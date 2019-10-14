@@ -6,6 +6,7 @@
 
 #include <Https.h>
 
+
 std::vector<coordinate> Polyline::decode(const std::string & polyline, int precision)
 {
 	std::vector<coordinate> points;
@@ -117,3 +118,32 @@ void height::getHeights(glm::vec3 * points, size_t num)
 	}
 }
 
+std::string img::getImage(coordinate topLeft, coordinate btmRight)
+{
+	const char * app_id = "eue3ZmJeRloe49N4jGod";
+	const char * app_code = "7GI8j3yr8Mn3vr_RvnHOLA";
+	const char * path = "/mia/1.6/mapview";
+	HttpsClient client("image.maps.api.here.com");
+	if (client.connectClient() != 0) printf("Failed to connect to HERE\n");
+	HttpFrame req, resp;
+	req.protocol = "GET";
+	req.headers["Host"] = "image.maps.api.here.com";
+	req.headers["Accept"] = "image/*";
+	char gdata[500];
+	sprintf(gdata, "%s?app_id=%s&app_code=%s&bbox=%f,%f,%f,%f,%f,%f,%f,%f", path, app_id, app_code,
+		topLeft.lat, topLeft.lon, topLeft.lat, btmRight.lon, btmRight.lat, topLeft.lon, btmRight.lat, btmRight.lon);
+	req.file = gdata;
+	req.composeRequest();
+	client.sendMessage(req);
+	std::stringstream data;
+	client.getMessage(resp);
+	data.write(resp.content.c_str(), resp.content.size());
+	int contentLength = std::stoi(resp.headers["Content-Length"]);
+
+	while (data.str().size() < contentLength) {
+		client.getMessage(resp);
+		data.write(resp.data.c_str(), resp.data.size());
+	}
+	return data.str();
+
+}
