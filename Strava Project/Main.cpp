@@ -74,6 +74,9 @@ int main() {
 	ui.addKeyBind(keys::esc, [&wind](actions a, keys k) {
 		if (a == actions::press) wind.releaseCursor();
 	});
+	ui.addKeyBind(keys::c, [&wind](actions a, keys k) {
+		if (a == actions::press) wind.captureCursor();
+	});
 	Engine engine;
 	wind.attatch(&engine);
 	engine.perspective(glm::radians(45.f), (float)WindowWidth / WindowHeight, 0.1f, 500.f);

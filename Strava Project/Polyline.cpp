@@ -81,7 +81,8 @@ void height::getHeights(glm::vec3 * points, size_t num)
 	request.headers["Host"] = "elevation-api.io";
 	request.headers["Connection"] = "keep-alive";
 	request.headers["Accept"] = "application/json, */*";
-	const char * file = "/api/elevation?points=";
+//	request.headers["ELEVATION-API-KEY"] = "h0edaS8ftgo30a4LwJ8D04IBbMm16";
+	const char * file = "/api/elevation?key=h0edaS8ftgo30a4LwJ8D04IBbMm16-&points=";
 	if (client.connectClient() != 0) printf("Error connecting client!\n");
 	std::stringstream ss;
 	int loops = num / 10 + 1;
@@ -99,23 +100,24 @@ void height::getHeights(glm::vec3 * points, size_t num)
 		if (!send) break;
 		request.file = ss.str();
 		request.composeRequest();
-//		printf("Request: %s\n", request.data.c_str());
+		printf("Request: %s\n", request.data.c_str());
 		client.sendMessage(request);
 		HttpFrame response;
 		client.getMessage(response);
-//		printf("Response: %s\n", response.data.c_str());
-		auto searchStart = response.data.cbegin();
+		printf("Response: %s\n", response.content.c_str());
+		auto searchStart = response.content.cbegin();
 		std::smatch match;
 		int j = 0;
-		while (std::regex_search(searchStart, response.data.cend(), match, std::regex("\"elevation\":"))) {
+		while (std::regex_search(searchStart, response.content.cend(), match, std::regex("\"elevation\":"))) {
 			size_t pos = match.position() + 12;
-			std::string num = response.data.substr(pos + (searchStart - response.data.cbegin()), response.data.find(',', pos + (searchStart - response.data.cbegin())) - (pos + (searchStart - response.data.cbegin())));
+			std::string num = response.content.substr(pos + (searchStart - response.content.cbegin()), response.content.find('}', pos + (searchStart - response.content.cbegin())) - (pos + (searchStart - response.content.cbegin())));
 			float h = std::stof(num);
 			points[i * 10 + j].y = h;
 			searchStart = match.suffix().first;
 			++j;
 		}
 	}
+
 }
 
 std::string img::getImage(coordinate topLeft, coordinate btmRight)

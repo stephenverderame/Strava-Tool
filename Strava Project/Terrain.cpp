@@ -175,18 +175,24 @@ void Trail::draw(const Shader * s) const
 	glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 	glClearColor(bg.r, bg.g, bg.b, bg.a);
 	glClear(GL_COLOR_BUFFER_BIT);
+	glDisable(GL_DEPTH_TEST);
 	s->setInt("tex", 0);
 	bgTex->bind();
 	glBindVertexArray(rVao);
 	s->setBool("useModel", true);
 	s->setMat4("model", model);
+	glm::mat4 m;
+	m = glm::rotate(m, glm::radians(180.f), glm::vec3(1, 0, 0));
+	s->setMat4("texCorrection", m);
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 	s->setBool("useModel", false);
 	glBindVertexArray(vao);
 	s->setBool("useColor", true);
 	glDrawArrays(GL_LINE_STRIP, 0, totalVertices);
 	s->setBool("useColor", false);
+	s->setBool("useModel", false);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glEnable(GL_DEPTH_TEST);
 }
 
 void Trail::setColor(glm::vec3 color)
@@ -210,6 +216,6 @@ void Trail::setBgImage(const std::string & data)
 	bgTex->bind();
 
 	model = glm::scale(model, glm::vec3(textureWidth, textureHeight, 1.0));
-//	model = glm::rotate(model, glm::radians(180.f), glm::vec3(0, 1.0, 0.0));
+//	model = glm::rotate(model, glm::radians(180.f), glm::vec3(1.0, 0.0, 0.0));
 }
 
